@@ -1,0 +1,7 @@
+package com.mod.emp.model;
+
+public class LeaveReqEmpMapping 
+{
+   private int id;
+   p
+}

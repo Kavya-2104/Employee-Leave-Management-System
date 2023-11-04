@@ -1,0 +1,7 @@
+package com.mod.emp.service;
+
+public interface LeaveBalanceService {
+	
+	private String add
+
+}

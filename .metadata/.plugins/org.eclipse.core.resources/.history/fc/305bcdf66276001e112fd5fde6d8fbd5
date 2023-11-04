@@ -1,0 +1,14 @@
+package com.mod.emp.model;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "lbempmap")
+public class LeaveBalanceEmpMapping 
+{
+	   @Id
+	   @
+       private int id;
+	   private Employee emp;
+	   private LeaveBalance lvb;
+}

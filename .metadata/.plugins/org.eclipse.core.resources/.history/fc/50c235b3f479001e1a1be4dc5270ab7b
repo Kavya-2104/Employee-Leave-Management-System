@@ -1,0 +1,66 @@
+package com.mod.emp.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import jakarta.ws.rs.Path;
+
+@Controller
+@RequestMapping("emp")
+public class EmpController 
+{
+	
+	@GetMapping("home")
+    public ModelAndView demo()
+    {
+   	 ModelAndView mv = new ModelAndView("EmployeeFolder/EmpIndex");
+   	 return mv;
+    }
+	
+	@GetMapping("LeaveReq")
+    public ModelAndView leavereq()
+    {
+   	 ModelAndView mv = new ModelAndView("EmployeeFolder/LeaveReq");
+   	 return mv;
+    }
+	
+	@GetMapping("auth-logout")
+    public ModelAndView authlogout()
+    {
+   	 ModelAndView mv = new ModelAndView("EmployeeFolder/auth-logout");
+   	 return mv;
+    }
+	
+	@GetMapping("auth-reset-password")
+    public ModelAndView authlogout()
+    {
+   	 ModelAndView mv = new ModelAndView("EmployeeFolder/auth-logout");
+   	 return mv;
+    }
+	
+	
+	
+	@GetMapping("ViewAllReqs")
+    public ModelAndView viewallreqs()
+    {
+   	 ModelAndView mv = new ModelAndView("EmployeeFolder/ViewAllReqs");
+   	 return mv;
+    }
+	@GetMapping("LeaveBalance")
+    public ModelAndView leavebal()
+    {
+   	 ModelAndView mv = new ModelAndView("EmployeeFolder/LeaveBalance");
+   	 return mv;
+    }
+	@GetMapping("CheckStatus")
+    public ModelAndView checkStatus()
+    {
+   	 ModelAndView mv = new ModelAndView("EmployeeFolder/CheckStatus");
+   	 return mv;
+    }
+	
+	
+	
+}

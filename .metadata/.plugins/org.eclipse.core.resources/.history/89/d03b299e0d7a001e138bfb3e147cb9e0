@@ -1,0 +1,19 @@
+package com.elm.sdp.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.elm.project.models.Employee;
+import com.elm.project.models.LeaveForm;
+
+public interface EmployeeRespository extends JpaRepository<Employee, Integer>{
+
+	@Query("select e from Employee e where email=?1 and password=?2")
+	public com.elm.sdp.model.Employee checkemplogin(String email,String pwd);
+	
+	@Query("select e from Employee e where id=?1")
+    public com.elm.sdp.model.Employee getEmployeeMenthod(int empid);
+	
+	
+	
+}

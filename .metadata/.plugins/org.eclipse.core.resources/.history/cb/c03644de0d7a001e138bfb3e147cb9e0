@@ -1,0 +1,84 @@
+package com.elm.sdp.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
+
+import com.elm.sdp.repository.EmployeeRespository;
+
+import jakarta.mail.internet.MimeMessage;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService
+{
+    @Autowired
+	private EmployeeRespository employeeRespository;
+    
+
+	
+//	@Override
+//	public String addForm(LeaveForm form) {
+//		 leaveFormRespository.save(form);
+//		 sendEmail(form);
+//		 return "LeaveForm";
+//	}
+//	
+//	public List<Employee> viewallreqs(LeaveForm form)
+//	{
+//		
+//		return null;
+//	}
+//	
+//	@Override
+//    public void sendEmail(LeaveForm lf) {
+//		
+//		Employee emp = employeeRespository.getEmployeeMenthod(lf.getEmpid());
+//		String d1 = lf.getStartdate();
+//		String d2 = lf.getEnddate();
+//		
+//		String msg = "Hello "+emp.getName()+",";
+//		String txt = "Your Application for Leave Stating as follows";
+//		
+//        try {
+//            MimeMessage message = javaMailSender.createMimeMessage();
+//            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+//            helper.setTo(emp.getEmail());
+//            helper.setSubject("Registration Successful");
+//            helper.setText(msg +"\n\n"+txt+"\n\n\n"+"Subject : "+lf.getSubject()+"\n\n"+"Dated From : "+d1+" To "+d2+"\n\nReason : "+lf.getReason()+"\n For a total of"+lf.getDays()+"days "+"\n Was Successfully Submitted!!"+"\n\n We'll get back to you in few days");
+//            javaMailSender.send(message);
+//        } catch (Exception e) 
+//        {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//	@Override
+//	public String addemployee(Employee emp) {
+//		employeeRespository.save(emp);
+//		sendConfirmationEmail(emp);
+//		return "Added Succesfully And Confirmation Mail is Sent";
+//	}
+//	 
+//	@Override
+//	public Employee checkemplogin(String email, String pwd) {
+//		return employeeRespository.checkemplogin(email, pwd);
+//	}
+//	@Override
+//    public void sendConfirmationEmail(Employee emp) {
+//        try {
+//            MimeMessage message = javaMailSender.createMimeMessage();
+//            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+//            helper.setTo(emp.getEmail());
+//            helper.setSubject("Registration Successful");
+//            helper.setText("Hello " + emp.getName() + ",\n\nYour registration was successful.");
+//            javaMailSender.send(message);
+//        } catch (Exception e) 
+//        {
+//            e.printStackTrace();
+//        }
+//    }
+
+}

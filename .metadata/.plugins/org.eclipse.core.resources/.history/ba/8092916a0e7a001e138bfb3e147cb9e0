@@ -1,0 +1,18 @@
+package com.elm.sdp.service;
+
+import java.util.List;
+
+import com.elm.sdp.model.Employee;
+
+
+
+public interface EmployeeService
+{
+	public String addemployee(Employee emp);
+	//void sendConfirmationEmail(Employee emp);
+	public Employee checkemplogin(String email,String pwd);
+	
+//	public String addForm(LeaveForm form);
+//	public List<Employee> viewallreqs(LeaveForm form);
+//	void sendEmail(LeaveForm emp);
+}

@@ -1,0 +1,16 @@
+package com.mod.emp.service;
+
+import org.springframework.stereotype.Service;
+
+import com.mod.emp.model.LeaveRequest;
+
+@Service
+public class LeaveRequestServiceImpl implements LeaveRequestService{
+
+	@Override
+	public String addForm(LeaveRequest form) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

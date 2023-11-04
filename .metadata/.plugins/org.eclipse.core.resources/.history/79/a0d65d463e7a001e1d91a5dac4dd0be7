@@ -1,0 +1,25 @@
+package com.mod.emp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
+
+import com.mod.emp.model.LeaveRequest;
+
+@Service
+public class LeaveRequestServiceImpl implements LeaveRequestService{
+	
+	 @Autowired
+	    private JavaMailSender javaMailSender;
+	    
+	    @Autowired
+		private LeaveFormRespository leaveFormRespository;
+		
+		@Override
+		public String addForm(LeaveForm form) {
+			 leaveFormRespository.save(form);
+			 sendEmail(form);
+			 return "LeaveForm";
+		}
+
+}

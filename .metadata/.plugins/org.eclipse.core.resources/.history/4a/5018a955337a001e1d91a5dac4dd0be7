@@ -1,0 +1,47 @@
+package com.mod.emp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+
+import com.mod.emp.model.Employee;
+import com.mod.emp.repository.EmployeeRepository;
+
+import jakarta.mail.internet.MimeMessage;
+
+
+public class EmployeeServiceImpl implements EmployeeService{
+
+	@Autowired
+	private EmployeeRepository employeeRepository;
+	
+	@Override
+	public String addemployee(Employee emp) {
+		employeeRepository.save(emp);
+		sendConfirmationEmail(emp);
+		return "Employee Added Successfully And Email is Sent Sucessfully";
+	}
+
+	@Override
+	public void sendConfirmationEmail(Employee emp) {
+		 try {
+	            MimeMessage message = JavaMailSender.createMimeMessage();
+	            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+	            helper.setTo(emp.getEmail());
+	            helper.setSubject("Registration Successful");
+	            helper.setText("Hello " + emp.getName() + ",\n\nYour registration was successful.");
+	            javaMailSender.send(message);
+	        } catch (Exception e) 
+	        {
+	            e.printStackTrace();
+	        }
+		
+	}
+
+	@Override
+	public Employee checkemplogin(String email, String pwd) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

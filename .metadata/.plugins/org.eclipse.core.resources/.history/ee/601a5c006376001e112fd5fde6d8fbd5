@@ -1,0 +1,16 @@
+package com.mod.emp.model;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "lbempmap")
+public class LeaveBalanceEmpMapping 
+{
+	   @Id
+	   @GeneratedValue(strategy = GenerationType.IDENTITY)
+       private int id;
+	   
+	   @ManyToOne
+	   private Employee emp;
+	   private LeaveBalance lvb;
+}

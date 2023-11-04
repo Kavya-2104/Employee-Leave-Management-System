@@ -1,0 +1,9 @@
+package com.mod.emp.service;
+
+import com.mod.emp.model.LeaveRequest;
+
+public interface LeaveRequestService {
+	
+	public String addForm(LeaveRequest form);
+
+}

@@ -1,0 +1,11 @@
+package com.mod.emp.service;
+
+import com.mod.emp.model.Employee;
+
+public interface EmployeeService {
+	
+	public String addemployee(Employee emp);
+	void sendConfirmationEmail(Employee emp);
+	public Employee checkemplogin(String email,String pwd);
+
+}

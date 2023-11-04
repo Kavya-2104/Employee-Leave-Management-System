@@ -1,0 +1,17 @@
+package com.mod.emp.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import com.mod.emp.model.LeaveRequest;
+
+public interface LeaveRequestRepository extends CrudRepository<LeaveRequest, Integer>{
+	
+	@Query("SELECT lr FROM LeaveRequest lr WHERE lr.empid = :id")
+	public List<LeaveRequest> leaveReqs(@Param("id") int id);
+
+	 List<LeaveRequest> findByEmpid(int empid);
+}
