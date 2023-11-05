@@ -12,7 +12,7 @@
   <meta charset="UTF-8"> 
 
 
-  <title>CodePen - Animated Login Form using Html &amp; CSS Only</title> 
+  <title>LeaveConnect</title> 
 
 
   <link rel="stylesheet" href="./style.css"> 
@@ -382,6 +382,12 @@ input[type="submit"]:active
 
 }
 
+.captcha-box { 
+  margin-top: 20px; /* Adjust the margin as needed */ 
+  text-align: left; 
+  font-size: 1.5em; /* Increase font size for visibility */ 
+  color: #45f3ff; /* Change the color as needed */ 
+}
   </style>
 
 
@@ -408,7 +414,7 @@ input[type="submit"]:active
 
       <div class="inputBox"> 
       
-        <form method="post" action="checkemplogin">
+        <form method="post" action="checkemplogin" onsubmit="return checkCaptcha();">
         
        <input type="email" name="email" required> <i>Email</i> 
       </div> 
@@ -416,16 +422,69 @@ input[type="submit"]:active
        <input type="password" name="password" required> <i>Password</i> 
       </div> 
 
-
+ <div class="captcha-box">
+                <div class="captcha">
+                    <!-- CAPTCHA text goes here -->
+                </div>
+                <input type="text" id="userInput" placeholder="Enter CAPTCHA" required="required">
+            </div>
+            
       <div class="links"> <a href="#">Forgot Password</a><br> <a href="Empreg">Don't Have an account??<br>Signup Instead!</a> 
 
-
       </div> 
+      
       <div class="inputBox"> 
 
        <input type="submit" value="Login"> 
 
     </form>
+<script type="text/javascript">
+function generateCaptchaText(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let captchaText = '';
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        captchaText += characters[randomIndex];
+    }
+    return captchaText;
+}
+
+// Function to update the CAPTCHA text and clear user input
+function updateCaptcha() {
+    const captchaElement = document.querySelector('.captcha');
+    const userInputElement = document.getElementById('userInput');
+
+    // Generate a new CAPTCHA text
+    const newCaptchaText = generateCaptchaText(5);
+
+    // Update the CAPTCHA text
+    captchaElement.textContent = newCaptchaText;
+
+    // Clear user input
+    userInputElement.value = '';
+}
+
+// Function to check if the user input matches the CAPTCHA
+function checkCaptcha() {
+    const captchaElement = document.querySelector('.captcha');
+    const userInputElement = document.getElementById('userInput');
+
+    if (userInputElement.value === captchaElement.textContent) {
+        // Optionally, update the CAPTCHA text for the next verification
+        updateCaptcha();
+        return true; // Allow the form to submit
+    } else {
+        alert('CAPTCHA verification failed. Please try again.');
+        // Update the CAPTCHA text to create a new CAPTCHA
+        updateCaptcha();
+        return false; // Prevent the form from submitting
+    }
+}
+
+// Initialize the CAPTCHA
+updateCaptcha();
+
+</script>
 
 
       </div> 

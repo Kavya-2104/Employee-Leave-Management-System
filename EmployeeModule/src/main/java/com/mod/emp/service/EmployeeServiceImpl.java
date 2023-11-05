@@ -55,4 +55,56 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeRepository.findById(id).get();
 	}
 
+	@Override
+	public String ResetPwd(Employee e) {
+		Employee emp = employeeRepository.findById(e.getEmpid()).get();    
+	    
+		emp.setEmpid(e.getEmpid());
+	    emp.setName(e.getName());
+	    emp.setGender(e.getGender());
+	    emp.setDob(e.getDob());
+	    emp.setDept(e.getDept());
+	    emp.setSalary(e.getSalary());
+	    emp.setDesignation(e.getDesignation());
+	    emp.setEmail(e.getEmail());
+	    emp.setPassword(e.getPassword());
+	    emp.setLocation(e.getLocation());
+	    emp.setContact(e.getContact());
+	    emp.setStatus(e.isStatus());
+	    emp.setProfile(e.getProfile());
+	    
+	    employeeRepository.save(e);
+		return null;
+	}
+	
+	@Override
+	public String UpdateProfile(Employee e) {
+		Employee emp = employeeRepository.findById(e.getEmpid()).get();    
+	    
+		emp.setEmpid(e.getEmpid());
+	    emp.setName(e.getName());
+	    emp.setGender(e.getGender());
+	    emp.setDob(e.getDob());
+	    emp.setDept(e.getDept());
+	    emp.setSalary(e.getSalary());
+	    emp.setDesignation(e.getDesignation());
+	    emp.setEmail(e.getEmail());
+	    emp.setPassword(e.getPassword());
+	    emp.setLocation(e.getLocation());
+	    emp.setContact(e.getContact());
+	    emp.setStatus(e.isStatus());
+	    emp.setProfile(e.getProfile());
+	    
+	    employeeRepository.save(e);
+		return null;
+	}
+
+	@Override
+	public String deleteAcc(int e) {
+		
+		employeeRepository.deleteById(e);
+		return "EmployeeDeletedSucessfully";
+	}
+	
+
 }

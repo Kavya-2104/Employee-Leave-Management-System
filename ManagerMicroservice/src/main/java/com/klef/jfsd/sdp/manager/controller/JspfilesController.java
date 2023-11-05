@@ -1,5 +1,7 @@
 package com.klef.jfsd.sdp.manager.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,11 @@ public class JspfilesController
 		return mv;
 	}
 	
+	
+	
+	
+	
+	
      //MANAGER REGISTRATION
 	@GetMapping("Mngreg")
 	public ModelAndView mnregistration()
@@ -34,10 +41,7 @@ public class JspfilesController
 		mv.setViewName("ManagerFolder/Mngreg");
 		return mv;
 	}
-	
-	
-	
-	
+
 	
 	//MANAGER REGISTRATION SUCCESS
 	@GetMapping("reg-success")
@@ -71,35 +75,7 @@ public class JspfilesController
 	      ModelAndView mv = new ModelAndView("ManagerFolder/auth-reset-password");
 	      return mv;
 	    }
-	  
-	  
-	  @GetMapping("Profile")
-	    public ModelAndView profile()
-	    {
-	      ModelAndView mv = new ModelAndView("ManagerFolder/Profile");
-	      return mv;
-	    }
-	  
-	  @GetMapping("view_request_details")
-	    public ModelAndView view_request_details(@RequestParam("empid")int id)
-	    {
-		  LeaveRequest lr = managerService.findByEmpid(id);
-	      ModelAndView mv = new ModelAndView("ManagerFolder/view_request_details");
-	      mv.addObject("lr", lr);
-	      return mv;
-	    }
-	  
-	  
-	  
-	  
-	  
-		/*
-		 * @GetMapping("ViewLeaveRequests") public ModelAndView ViewLeaveRequests() {
-		 * ModelAndView mv = new ModelAndView("ManagerFolder/ViewLeaveRequests"); return
-		 * mv; }
-		 */
-	  
-	  
+	  	  
 }
 	  
 	  

@@ -42,16 +42,37 @@ public class ViewController {
 		int eid = (int) session.getAttribute("eid");	
    	    ModelAndView mv = new ModelAndView("EmployeeFolder/ViewAllReqs");
    	    mv.addObject("eid",eid);
+   	    
    	    List<LeaveRequest> data= leaveRequestService.ViewLeaveReqs(eid);
    	    
    	    System.out.println("\n"+eid+"\n");
    	    for (LeaveRequest leaveRequest : data) {
    	    	System.out.println(leaveRequest.getEmpid());		
-		}
-   	    
+		} 
    	    mv.addObject("data",data);
    	    return mv;
     }
+	
+	
+	@GetMapping("CheckStatus")
+    public ModelAndView Check(HttpServletRequest req)
+    {
+		HttpSession session = req.getSession();
+		int eid = (int) session.getAttribute("eid");	
+   	    ModelAndView mv = new ModelAndView("EmployeeFolder/CheckStatus");
+   	    mv.addObject("eid",eid);
+   	    
+   	    List<LeaveRequest> data= leaveRequestService.ViewLeaveReqs(eid);
+   	    
+   	    System.out.println("\n"+eid+"\n");
+   	    for (LeaveRequest leaveRequest : data) {
+   	    	System.out.println(leaveRequest.getEmpid());		
+		} 
+   	    mv.addObject("data",data);
+   	    return mv;
+    }
+	
+	
 	
 	
 	@GetMapping("displayprofileimage")

@@ -1,9 +1,9 @@
 package com.klef.jfsd.service;
 
 import java.util.List;
-
 import com.klef.jfsd.model.Admin;
 import com.klef.jfsd.model.Employee;
+import com.klef.jfsd.model.Leavereq;
 import com.klef.jfsd.model.Manager;
 
 public interface AdminService
@@ -14,4 +14,8 @@ public interface AdminService
 	public int updatestatus(boolean status, int empid);
 	public int updatemanagerstatus(boolean status, int managerid);
 	
+	
+	public long empcount();
+	public long managercount();
+	public List<Leavereq> reqhistory();
 }

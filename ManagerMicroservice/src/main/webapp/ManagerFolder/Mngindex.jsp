@@ -52,7 +52,7 @@
                     <ul class="side-dropdown">
 						<li><a href="auth-logout">Logout</a></li>
                         <li><a href="Profile">View Profile</a></li>
-                        <li><a href="auth-reset-password">Reset Password</a></li>
+                        <li><a href="resetpwd">Reset Password</a></li>
                     </ul>
                 </li>
 				<!-- Divider-->
@@ -60,19 +60,14 @@
                 <li>
                     <a href="ViewLeaveRequests">
 						<i class='bx bxs-notepad icon' ></i> 
-						View Requests Generated Today
+						View Leave Requests
 					</a>                 
                 </li>
 				
-				<li>
-                    <a href="Request_History">
-						<i class='bx bxs-bar-chart-alt-2 icon' ></i> 
-						View All Requests
-					</a>                 
-                </li>
+				
                 
                 <li>
-                    <a href="View_Requests">
+                    <a href="Request_History">
 						<i class='bx bx-columns icon' ></i> 
 						Request History
 					</a>                 

@@ -130,7 +130,26 @@
       margin-top: 20px;
     }
   </style>
-   <script>
+  <script>
+        function validateEmail() {
+            var emailInput = document.getElementById("email");
+            var email = emailInput.value;
+            var validDomains = ["gmail.com", "yahoo.com"];
+
+            // Check if the email ends with one of the valid domains
+            var isValid = validDomains.some(function(domain) {
+                return email.endsWith("@" + domain);
+            });
+
+            if (isValid) {
+                // Valid email domain
+                alert("Email is valid.");
+            } else {
+                // Invalid email domain
+                alert("Email is not from a valid domain (gmail.com or yahoo.com).");
+                emailInput.value = ""; // Clear the input field
+            }
+        }
         function validateForm() {
             var id = document.getElementById("id").value;
             var name = document.getElementById("name").value;

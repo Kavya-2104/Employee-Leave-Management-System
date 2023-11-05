@@ -496,7 +496,7 @@ $(document).ready(function () {
             <a href="addmanager" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Add Manager  </a>
                   <a href="viewallemployee" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> View All Employees  </a>
              <a href="viewallmanager" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> View All Managers  </a>
-          <a href="Requesthistory.html" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Leave Requests History </a>
+          <a href="reqhistory" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Leave Requests History </a>
           <a href="leavepolicy" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Leave policy </a>
           <a  href="logout" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
         </nav>     
@@ -509,6 +509,22 @@ $(document).ready(function () {
 
 
  <img src="https://flowhcm.com/wp-content/uploads/2023/01/MicrosoftTeams-image-379.png">
+ <br>
+ 
+ <br>
+ <br>
+ 
+ 
+ <div style="width: 300px; border: 5px solid #ccc; padding: 10px; background-color: 3bf4fb; box-shadow: 3px 3px 5px ;">
+
+ Total Employees=${ecount} <br>
+
+ Total Managers=${mcount} <br>
+</div>
+ 
+ 
+ 
+ 
  
 
 

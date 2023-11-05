@@ -115,7 +115,7 @@ public class InsertController
 	    }
 	    else
 	    {
-	      mv.setViewName("EmployeeFolder/EmpLogin");
+	      mv.setViewName("EmployeeFolder/LoginFail");
 	      mv.addObject("message","Login Failed");
 	    }
 
@@ -176,7 +176,6 @@ public class InsertController
 			mv.addObject("message",msg);
 		}
 		return mv;
-	
 	}
 	
 	

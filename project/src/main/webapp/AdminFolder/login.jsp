@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Login</title>
+<title>Request History</title>
 
   <link rel="stylesheet" href="./style.css"> 
   <style>
@@ -191,8 +191,7 @@ input[type="submit"]:active
   }
 }
   </style>
-
-
+  
 </head>
 <body> <!-- partial:index.partial.html --> 
 
@@ -207,6 +206,7 @@ input[type="submit"]:active
      <div class="form" > 
 
       <div class="inputBox"> 
+     
         <form method="post" action="checkadminlogin">
 
        <input type="text" name="uname" required> <i>Username</i> 
@@ -216,17 +216,16 @@ input[type="submit"]:active
       <div class="inputBox"> 
 
        <input type="password" name="pwd" required> <i>Password</i> 
-
       </div> 
-
+      
       <div class="links"> <a href="#">Forgot Password</a> <a href="#">Signup</a> 
-
       </div> 
-
       <div class="inputBox"> 
 
        <input type="submit" value="Login"> 
     </form>
+    
+    
 
       </div> 
 

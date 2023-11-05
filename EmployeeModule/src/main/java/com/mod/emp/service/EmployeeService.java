@@ -11,5 +11,8 @@ public interface EmployeeService {
 	void sendConfirmationEmail(Employee emp);
 	public Employee checkemplogin(String email,String pwd);	
 	public Employee ViewEmpById(int id);
- 
+	
+	public String ResetPwd(Employee emp);
+	public String UpdateProfile(Employee e);
+    public String deleteAcc(int id);
 }

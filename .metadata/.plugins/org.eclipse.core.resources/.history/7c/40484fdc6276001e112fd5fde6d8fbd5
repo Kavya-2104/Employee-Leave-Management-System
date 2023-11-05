@@ -1,8 +1,0 @@
-package com.mod.emp.model;
-
-public class LeaveBalanceEmpMapping 
-{
-       private int id;
-	   private Employee emp;
-	   private LeaveBalance lvb;
-}

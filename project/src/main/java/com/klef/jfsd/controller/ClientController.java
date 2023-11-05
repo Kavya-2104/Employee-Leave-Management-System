@@ -4,14 +4,16 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.klef.jfsd.model.Admin;
 import com.klef.jfsd.model.Employee;
+import com.klef.jfsd.model.Leavereq;
 import com.klef.jfsd.model.Manager;
 import com.klef.jfsd.service.AdminService;
 import com.klef.jfsd.service.ManagerService;
@@ -30,7 +32,7 @@ public class ClientController
    */ 
 	
 	
-	@GetMapping("Adminlogin")//URI  & method method name can be different
+	@GetMapping("Adminlogin")
 	public ModelAndView adminlogin()
 	{
 		ModelAndView mv=new ModelAndView ();
@@ -43,7 +45,8 @@ public class ClientController
 	  {
 	    ModelAndView mv = new ModelAndView(); 
 	    
-	    
+	    long ecount=adminService.empcount();
+		long mcount=adminService.managercount();
 	    String uname = request.getParameter("uname");
 	     String pwd = request.getParameter("pwd");
 	     
@@ -53,7 +56,10 @@ public class ClientController
 	    
 	    if(admin!=null) 
 	     { 
-	       mv.setViewName("AdminFolder/adminhome"); 
+	       mv.setViewName("AdminFolder/adminhome");
+	       mv.addObject("ecount", ecount);
+			mv.addObject("mcount", mcount);
+	       
 	     }
 	    else
 	    {
@@ -62,6 +68,8 @@ public class ClientController
 	    }
 	    return mv;
 	  }
+	
+	
 	
 	@GetMapping("addemployee")
 	public ModelAndView updatestatus()
@@ -171,5 +179,40 @@ public class ClientController
 	{
 		return "AdminFolder/leavepolicy";
 	}
+	
+	@GetMapping("adminhome")
+	public ModelAndView adminhome()
+	{
+		long ecount=adminService.empcount();
+		long mcount=adminService.managercount();
+		
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("adminhome");
+		mv.addObject("ecount", ecount);
+		mv.addObject("mcount", mcount);
+		
+		System.out.println(ecount);
+		System.out.println(mcount);
+		return mv;
+		
+		
+		
+		
+		
+	}
+	
+	@RequestMapping("reqhistory")
+	public ModelAndView reqhistory()
+	{
+		List<Leavereq>lq=adminService.reqhistory();
+		ModelAndView mv= new ModelAndView("AdminFolder/reqhistory");
+		mv.addObject("historydata", lq);
+		return mv;
+		
+	}
+
+	
+	
+	
 	
 }

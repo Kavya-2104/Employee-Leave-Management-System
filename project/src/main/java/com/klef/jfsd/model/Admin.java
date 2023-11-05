@@ -20,6 +20,8 @@ public class Admin
     
     @Column(nullable = false)
     private String password;
+    
+ 
 
 	public int getId() {
 		return id;

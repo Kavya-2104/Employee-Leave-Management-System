@@ -114,6 +114,7 @@
                   <p class="balance-number">14</p> <!-- Display balance number -->
                 </div>
               </div>
+              <br>
               <div class="col-md-4">
                 <!-- Box for Total Applied This Month -->
                 <div class="content-box text-center">
@@ -121,6 +122,7 @@
                   <p class="balance-number">6</p> <!-- Display balance number -->
                 </div>
               </div>
+              <br>
               <div class="col-md-4">
                 <!-- Box for Total Applied Last Month -->
                 <div class="content-box text-center">
@@ -129,10 +131,10 @@
                 </div>
               </div>
             </div>
-            <div class="row mt-4">
+          <!--  <div class="row mt-4">
               <h4 style="margin-left: 410px; margin-top: 30px;">Search by Type</h4>
               <div style="margin-left: 380px; margin-top: 20px;"  class="col-md-3">
-                <!-- Box for Search by Type -->
+ 
                 <div class="content-box text-center">
                  
                   <div class="form-group">
@@ -141,12 +143,12 @@
                       <option value="vacation">Vacation</option>
                       <option value="sick">Sick Leave</option>
                       <option value="personal">Personal Leave</option>
-                      <!-- Add more leave types as needed -->
+                   
                     </select>
                   </div>
                   <button class="btn btn-primary mt-2">Search</button>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           

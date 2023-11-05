@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!doctype html>
 <html lang="en">
@@ -41,7 +41,7 @@
 
             <ul class="side-menu">
                 <li>
-					<a href="index.html" class="active">
+					<a href="Mngindex" class="active">
 						<i class='bx bxs-dashboard icon' ></i> Dashboard
 					</a>
 				</li>
@@ -52,9 +52,9 @@
 						<i class='bx bx-chevron-right icon-right' ></i>
 					</a>
                     <ul class="side-dropdown">
-						<li><a href="auth-logout.html">Logout</a></li>
-                        <li><a href="view_profile.html">View Profile</a></li>
-                        <li><a href="auth-reset-password.html">Reset Password</a></li>
+						<li><a href="auth-logout">Logout</a></li>
+                        <li><a href="Profile">View Profile</a></li>
+                        <li><a href="resetpwd">Reset Password</a></li>
                     </ul>
                 </li>
 				<!-- Divider-->
@@ -62,19 +62,14 @@
                 <li>
                     <a href="ViewLeaveRequests">
 						<i class='bx bxs-notepad icon' ></i> 
-						View Requests Generated Today
+						View Leave Requests
 					</a>                 
                 </li>
 				
-				<li>
-                    <a href="Request_History">
-						<i class='bx bxs-bar-chart-alt-2 icon' ></i> 
-						View All Requests
-					</a>                 
-                </li>
+				
                 
                 <li>
-                    <a href="View_Requests">
+                    <a href="Request_History">
 						<i class='bx bx-columns icon' ></i> 
 						Request History
 					</a>                 
@@ -88,8 +83,8 @@
 	<div class="content-start transition">
 		<div class="container-fluid dashboard">
 			<div class="content-header">
-				<h1>Leave Request Form</h1>
-				<p>Submit your leave request using the form below.</p>
+				<h1>View Requests Forms</h1>
+				<p>Submitted Employee Leave Details Yesterday And Today</p>
 			</div>
 	        <div class="row">
 
@@ -101,8 +96,8 @@
       <th>ID</th>
       <th>Name</th>
       <th>Designation</th>
-      <th>View</th>
-      <th>Actions</th>
+      <th style="text-align: center;">View</th>
+      <th style="text-align: center;">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -111,19 +106,20 @@
         <td><c:out value="${emp.empid}" /></td>
         <td><c:out value="${emp.name}" /></td>
         <td><c:out value="${emp.designation}" /></td>
-        <td>
-          <a href="view_request_details?empid=${emp.empid}" class="btn btn-primary">View Profile</a>
+        <td style="text-align: center;">
+          <a href="view_request_details?empid=${emp.empid}" class="btn btn-primary">View Request Details</a>
         </td>
-        <td>
-          <a href="view_request_details.html?empid=${emp.empid}" class="btn btn-primary">View Request Details</a>
-          <button class="btn btn-secondary">Delete</button>
-        </td>
+       <td style="text-align: center;">
+          <a href="viewempprofile?empid=${emp.empid}" class="btn btn-primary">View Profile</a>
+        </td> 
+        
+        
       </tr>
     </c:forEach>
   </tbody>
 </table>
 					
-				  </div>
+	</div>
 				
 				
 		</div>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!doctype html>
 <html lang="en">
@@ -110,6 +112,9 @@
   <select id="searchType" class="form-control mr-2">
     <option value="vacation">Vacation</option>
     <option value="sick">Sick Leave</option>
+    <option value="Maternity">Maternity Leave</option>
+										<option value="Personal Leave">Personal Leave</option>
+										<option value="Bereavement">Bereavement Leave</option>
     <!-- Add more options for other types of leave -->
   </select>
   <button type="button" class="btn btn-primary" id="searchButton">Search</button>
@@ -125,16 +130,74 @@
       <th>Status of Request</th>
       <th>Title</th>
       <th>Type of Leave</th>
-      <th>Start Date</th>
+      <th>Dates</th>
     </tr>
   </thead>
-  <tbody id="tableBody">
-    <!-- Table rows will be added dynamically using JavaScript -->
+  <tbody>
+ <c:forEach var="request" items="${data}">
+      <tr>
+        <td>${request.date}</td>
+        <td>${request.days}</td>
+         <td>
+          <c:choose>
+            <c:when test="${request.status == 'Approved'}">
+              <span class="badge badge-success">Approved</span>
+            </c:when>
+            <c:when test="${request.status == 'Pending'}">
+              <span class="badge badge-warning">Pending</span>
+            </c:when>
+            <c:when test="${request.status == 'Rejected'}">
+              <span class="badge badge-danger">Rejected</span>
+            </c:when>
+          </c:choose>
+        </td>
+        <td>${request.title}</td>
+        <td>${request.type}</td>
+ <td>${request.startdate} ${request.starttime} to
+${request.enddate} ${request.endtime}</td> 
+      </tr>
+    </c:forEach>
   </tbody>
 </table>
 
         </div>
       </div>	
+      </div>
+      </div>
+      </div>
+  <script>
+  document.getElementById("searchButton").addEventListener("click", function () {
+      searchRequests();
+  });
+
+  function searchRequests() {
+      var searchDate = document.getElementById("searchDate").value;
+      var searchTitle = document.getElementById("searchTitle").value.toLowerCase(); // Convert to lowercase for case-insensitive search
+      var searchType = document.getElementById("searchType").value;
+
+      var table = document.querySelector("table tbody");
+      var rows = table.getElementsByTagName("tr");
+
+      for (var i = 0; i < rows.length; i++) {
+          var row = rows[i];
+          var cells = row.getElementsByTagName("td");
+
+          var dateGenerated = cells[0].textContent;
+          var title = cells[3].textContent.toLowerCase(); // Convert to lowercase for case-insensitive search
+          var type = cells[4].textContent;
+
+          var dateMatch = searchDate === "" || dateGenerated === searchDate;
+          var titleMatch = searchTitle === "" || title.includes(searchTitle);
+          var typeMatch = searchType === "" || type === searchType;
+
+          if (dateMatch && titleMatch && typeMatch) {
+              row.style.display = "";
+          } else {
+              row.style.display = "none";
+          }
+      }
+  }
+</script>
 	<!-- Footer -->				
 	<footer>
 		<div class="footer">

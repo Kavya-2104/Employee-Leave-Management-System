@@ -93,67 +93,57 @@
     <div class="content-start transition">
 		<div class="container-fluid dashboard">
 			<div class="content-header">
-				<h4>Hi, Andree!</h4>
+				<h4>Hi, ${emp.name}..!!</h4>
 				<p>Change information about yourself on this page</p>
 			</div>
+
 		  
             <div class="row">
                 <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start align-items-sm-center  ">
-                           <!--   <img src="assets/images/avatar/avatar-1.png" alt="user-avatar" class="d-block rounded" height="100" width="100px" 
-                            id="uploadedAvatar" />-->
-                            <img src='displayprofileimage?id=${eid}' class="d-block rounded" height="100" width="100px" 
-                            id="uploadedAvatar" > 
-                            <div class="button-wrapper">
-                              <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                                <span class="d-none d-sm-block">Upload new photo</span>
-                                <i class="bx bx-upload d-block d-sm-none"></i>
-                                <input type="file" id="upload" class="account-file-input" hidden accept="image/png, image/jpeg" />
-                              </label>
-                              <pre class="text-muted mb-0">  Allowed PNG only. Max size of 800K</pre>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div class="card-body"> 
-                        <form  method="POST" accept="my-profile.html">
+                    <h4>ProfilePhoto</h4>
+                     <div class="d-flex align-items-start align-items-sm-center"> 
+                     	  <img src='displayprofileimage?id=${emp.empid}' class="d-block rounded" height="100" width="100px" 
+                            id="uploadedAvatar"> 
+                        </div>
+                        <form  method="POST" action="updateprofile" enctype="multipart/form-data">
                             <div class="row">
+                                
+                          
+                        <div class="card-body"></div>
+                      
+                            
                                 <div class="mb-3 col-md-6">
                                     <label for="firstName" class="form-label">Name</label>
-                                    <input class="form-control" type="text" id="firstName" name="firstName" value="Employee" autofocus />
+                                    <input class="form-control" type="text" id="name" name="name" value="${emp.name}" autofocus />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="lastName" class="form-label">Employee ID</label>
-                                    <input class="form-control" type="text" name="lastName" id="lastName" value="Doe" />
+                                    <input class="form-control" type="text" name="id" id="lastName" value="${emp.empid}" />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="email" class="form-label">E-mail</label>
-                                    <input class="form-control" type="text" id="email" name="email" value="Andree@example.com" placeholder="Andree@example.com" />
+                                    <input class="form-control" type="text" id="email" name="email" value="${emp.email}" placeholder="Andree@example.com" />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="organization" class="form-label">Designation</label>
-                                    <input type="text" class="form-control" id="organization" name="organization" value="TeamLead" />
+                                    <input type="text" class="form-control" id="organization" name="Designation" value="${emp.designation}" />
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="organization" class="form-label">Contact</label>
-                                    <input type="text" class="form-control" id="organization" name="organization" value="AtranaTheme" />
+                                    <input type="text" class="form-control" id="organization" name="contact" value="${emp.contact}" />
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="organization" class="form-label">Organization</label>
-                                    <input type="text" class="form-control" id="organization" name="organization" value="AtranaTheme" />
+                                    <label for="organization" class="form-label">Department</label>
+                                    <input type="text" class="form-control" id="organization" name="department" value="${emp.dept}" />
                                 </div>
                               
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary me-2">Save changes</button>
                                     <button type="reset" class="btn btn-outline-secondary">Cancel</button>
                                 </div>
-                        </form>
-                        </div>
-                    </div>
-                </div>
-
-                    <div class="card">
+                                
+                                 <div class="card">
                         <h5 class="card-header">Delete Account</h5>
                         <div class="card-body">
                           <div class="mb-3 col-12 mb-0">
@@ -162,15 +152,36 @@
                               <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
                             </div>
                           </div>
-                          <form  method="POST" accept="my-profile.html"> 
-                            <div class="form-check mb-3">
-                              <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation" />
-                              <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
-                            </div>
-                            <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
-                          </form>
+                         
+                           <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation" />
+    <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
+</div>
+<a href="delete?id=${emp.empid}"><button type="button" class="btn btn-danger deactivate-account" id="deactivateButton" style="display: none;">Deactivate Account</button></a>
+<div id="validationMessage" style="color: red;"></div>
+
                         </div>
                     </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#accountActivation').change(function() {
+        if (this.checked) {
+            $('#deactivateButton').show();
+            $('#validationMessage').text('');
+        } else {
+            $('#deactivateButton').hide();
+            $('#validationMessage').text('Please check the box to confirm deactivation.');
+        }
+    });
+});
+</script>
+
+                   
                 </div>
             </div>
 

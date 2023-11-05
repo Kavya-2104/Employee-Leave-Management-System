@@ -90,20 +90,46 @@
        </div> 
 	 </div>
 	</div><!-- End Sidebar-->
+    <script >
+    function filterTable() {
+        var input, filter, table, tr, td, i, j, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
 
+        for (i = 0; i < tr.length; i++) {
+            var display = false;
+            td = tr[i].getElementsByTagName("td");
+            for (j = 0; j < td.length; j++) {
+                if (td[j]) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        display = true;
+                        break;
+                    }
+                }
+            }
+            tr[i].style.display = display ? "" : "none";
+        }
+    }
+    </script>
 
     <div class="content-start transition">
         <div class="container-fluid dashboard">
           <div class="content-header">
-            <h1>View All Requests</h1>
-            <p>View and edit your submitted leave request forms.</p>
+            <h1>View Submitted Leave Requests</h1>
+            <p>View submitted leave request forms.</p>
           </div>
           
           <div class="container mt-4">
             <div class="row">
               <div class="col-md-12">
-                <h2 class="mb-4">Submitted Leave Requests</h2>
-				<table class="table table-bordered">
+                <h2 class="mb-4">Search </h2>
+                <input type="text" id="myInput" onkeyup="filterTable()" class="form-control mr-2" placeholder="Search....">
+                 <br>
+                   
+				<table class="table table-bordered" id="myTable">
   <thead>
     <tr>
       <th>Title</th>

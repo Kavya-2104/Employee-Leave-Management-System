@@ -115,7 +115,7 @@ $(document).ready(function () {
             <a href="addmanager" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Add Manager  </a>
             <a href="viewallemployee" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> View All Employees  </a>
              <a href="viewallmanager" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> View All Managers  </a>
-          <a href="Requesthistory.html" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Leave Requests History </a>
+          <a href="reqhistory" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Leave Requests History </a>
           <a href="leavepolicy" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i> Leave policy </a>
           <a  href="logout" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
         </nav>     
@@ -158,15 +158,15 @@ $(document).ready(function () {
 <td><c:out value="${emp.contact}" /></td> 
 
 <c:if test="${emp.status==true}" >
-<td bgcolor="green">ACTIVE</td>
+<td bgcolor="green">ACCEPT</td>
 </c:if>
 <c:if test="${emp.status==false}" >
-<td bgcolor="red">INACTIVE</td>
+<td bgcolor="red">REJECT</td>
 </c:if>
 
 <td>
-<a href='<c:url value="setstatus?empid=${emp.empid}&status=true"></c:url>'><b style="color: green"> Active</b></a>
-<a href='<c:url value="setstatus?empid=${emp.empid}&status=false"></c:url>'><b style="color: red"> InActive</b></a>
+<a href='<c:url value="setstatus?empid=${emp.empid}&status=true"></c:url>'><b style="color: green"> ACCEPT</b></a>
+<a href='<c:url value="setstatus?empid=${emp.empid}&status=false"></c:url>'><b style="color: red"> REJECT</b></a>
 </td>
  
 </tr> 

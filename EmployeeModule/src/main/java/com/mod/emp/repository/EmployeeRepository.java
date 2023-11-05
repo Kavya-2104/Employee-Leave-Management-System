@@ -9,6 +9,8 @@ import com.mod.emp.model.Employee;
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Integer>
 {
-	@Query("select e from Employee e where email=?1 and password=?2")
+	@Query("select e from Employee e where email=?1 and password=?2 and status=true")
 	public Employee checkemplogin(String email,String pwd);
+	
+	
 }

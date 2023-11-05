@@ -169,6 +169,7 @@
 										Please provide a title.
 									</div>
 								</div>
+								
 								<div class="mb-3">
 									<label for="reason">Reason for Leave</label>
 									<textarea class="form-control" id="reason" name="reason" rows="3" required></textarea>
@@ -176,12 +177,16 @@
 										Please provide a reason for your leave.
 									</div>
 								</div>
+								
 								<div class="mb-3">
 									<label for="leaveType">Leave Type</label>
 									<select class="form-select" id="leaveType" name="leaveType" required>
 										<option value="">Select Leave Type</option>
 										<option value="sick">Sick Leave</option>
 										<option value="vacation">Vacation</option>
+										<option value="Maternity">Maternity Leave</option>
+										<option value="Personal Leave">Personal Leave</option>
+										<option value="Bereavement">Bereavement Leave</option>
 										<!-- Add more options as needed -->
 									</select>
 									<div class="invalid-feedback">

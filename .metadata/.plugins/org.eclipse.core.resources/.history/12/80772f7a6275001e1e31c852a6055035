@@ -1,9 +1,0 @@
-package com.mod.emp.model;
-
-public class LeaveReqEmpMapping 
-{
-   private int id;
-   private Employee emp;
-   private LeaveRequest lvr;
-   
-}

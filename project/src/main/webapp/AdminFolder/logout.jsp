@@ -127,7 +127,7 @@ p {
               <h1>Successfully Logged out</h1>
               <br>
 
-              <a class="btn_primary" href='/role' target="_blank">Go Back</a>
+              <a class="btn_primary" href='Adminlogin'>Go Back</a>
             </div>
             
           </div>

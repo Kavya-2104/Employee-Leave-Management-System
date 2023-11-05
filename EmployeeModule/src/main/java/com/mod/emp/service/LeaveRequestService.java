@@ -9,5 +9,5 @@ public interface LeaveRequestService {
 	public String addForm(LeaveRequest form);
 	public LeaveRequest ViewById(int id);
 	public List<LeaveRequest> ViewLeaveReqs(int id);
-    
+	public void sendEmail(LeaveRequest lf);
 }
